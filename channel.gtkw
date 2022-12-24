@@ -1,0 +1,37 @@
+[*]
+[*] GTKWave Analyzer v3.3.111 (w)1999-2020 BSI
+[*] Fri Dec 23 23:47:24 2022
+[*]
+[dumpfile] "/media/aww/onetb/projects/openlane/designs/channel/channel.vcd"
+[dumpfile_mtime] "Fri Dec 23 23:46:01 2022"
+[dumpfile_size] 72301
+[savefile] "/media/aww/onetb/projects/openlane/designs/channel/channel.gtkw"
+[timestart] 0
+[size] 3768 2086
+[pos] -1 -1
+*-2.400000 237 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] channel.
+[sst_width] 297
+[signals_width] 510
+[sst_expanded] 1
+[sst_vpaned_height] 640
+@28
+channel.clk
+channel.reset
+@8022
+channel.ca_nco_phase_accumulator[31:0]
+channel.lo_nco_phase_accumulator[31:0]
+@28
+channel.ca_full_chip
+channel.prompt_i
+channel.prompt_q
+channel.address[2:0]
+@22
+channel.data_value[31:0]
+channel.lo_nco_step[31:0]
+channel.lo_nco_phase_delay[31:0]
+channel.ca_nco_step[31:0]
+channel.ca_nco_phase_delay[31:0]
+channel.prn_phase_init[10:1]
+[pattern_trace] 1
+[pattern_trace] 0
