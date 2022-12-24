@@ -28,8 +28,9 @@ module ca_code(clk, reset, expanded, tap0, tap1, g2_init, chip);
 
     output          chip;       // C/A-Code Chip Output
 
-    // G1 and G2 shift registers
+    // G1 and G2 shift registers and outputs
     reg     [10:1]  g1, g2;
+    wire            g1_out, g2_out;
 
     always @ (posedge clk)
         if (reset) begin

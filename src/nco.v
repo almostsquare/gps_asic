@@ -25,7 +25,8 @@ module nco(clk, reset, enable, phase_sync, phase_in, step, phase_out);
     reg     [WIDTH-1:0] accumulator;    // phase accumulator
 
     wire    [WIDTH:0]   sum;
-
+    wire                carry;          // currently unused
+    
     assign sum = accumulator + step;
     assign carry = sum[WIDTH];
 
