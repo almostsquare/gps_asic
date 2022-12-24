@@ -26,15 +26,14 @@ module channel(
     output          prompt_i,
     output          prompt_q,
 
-    output  [31:0]  lo_nco_phase_accumulator,
-    output  [15:0]  ca_nco_phase_upper,
+    output  [3:0]  lo_nco_phase_upper,
+    output  [3:0]  ca_nco_phase_upper,
 
     output   [1:0]  io_oeb
 );
 
+    wire    [31:0]  lo_nco_phase_accumulator;
     wire    [31:0]  ca_nco_phase_accumulator;
-    wire            ca_full_chip;
-    wire            ca_prompt;
 
     reg     [31:0]  lo_nco_phase_delay;
     reg     [31:0]  ca_nco_phase_delay;
@@ -45,14 +44,14 @@ module channel(
     reg             lo_nco_phase_sync;
     reg             ca_nco_phase_sync;
 
+    wire            ca_full_chip;
+    wire            ca_prompt;
+
     reg     [10:1]  prn_phase_init;
 
-
-    // Small modification for Caravel MPW8 wrapper
-    assign io_oeb = 2'b0;
-
     assign ca_full_chip       = ~ca_nco_phase_accumulator[31];
-    assign ca_nco_phase_upper = ca_nco_phase_accumulator[31:16];
+    assign ca_nco_phase_upper = ca_nco_phase_accumulator[31:28];    // only grabbing top 4 bits
+    assign lo_nco_phase_upper = lo_nco_phase_accumulator[31:28];    // only grabbing top 4 bits
 
     // Tiny Register File
     always @ (posedge clk) begin
@@ -104,8 +103,6 @@ module channel(
         .phase_in(ca_nco_phase_delay),
         .step(ca_nco_step),
         .phase_out(ca_nco_phase_accumulator));
-
-    assign ca_full_chip = ~ca_nco_phase_accumulator[31];
 
     // Coarse Acquisition Code Generator
     ca_code ca_gen(
