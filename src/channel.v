@@ -49,7 +49,7 @@ module channel(
 
     reg     [10:1]  prn_phase_init;
 
-    assign ca_full_chip       = ~ca_nco_phase_accumulator[31];
+    assign ca_full_chip       = ca_nco_phase_accumulator[31];
     assign ca_nco_phase_upper = ca_nco_phase_accumulator[31:28];    // only grabbing top 4 bits
     assign lo_nco_phase_upper = lo_nco_phase_accumulator[31:28];    // only grabbing top 4 bits
 
